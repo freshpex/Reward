@@ -1,10 +1,30 @@
 import React from 'react';
-import { Box, Input, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, FormControl, FormLabel, InputGroup, InputRightElement } from '@chakra-ui/react';
+import {
+  Box,
+  Input,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  FormControl,
+  FormLabel,
+  InputGroup,
+  InputRightElement,
+} from '@chakra-ui/react';
 import { Formik, Form, Field } from 'formik';
 import { colors } from '../../../constants/colors';
 
-const PromoCodes = ({ isOpen, onClose, handleSubmit, loading, generateCode, code, hasError }) => {
-
+const PromoCodes = ({
+  isOpen,
+  onClose,
+  handleSubmit,
+  loading,
+  generateCode,
+  code,
+  hasError,
+}) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -69,17 +89,16 @@ const PromoCodes = ({ isOpen, onClose, handleSubmit, loading, generateCode, code
                 </FormControl>
 
                 <Button
-                color={colors.primary}
+                  color={colors.primary}
                   size="sm"
                   variant="outline"
                   mt={4}
                   isLoading={loading}
                   type="submit"
-                  _hover={{ bg: colors.primary, color: "#fff" }}
+                  _hover={{ bg: colors.primary, color: '#fff' }}
                 >
                   Submit
                 </Button>
-
               </Form>
             )}
           </Formik>

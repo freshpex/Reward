@@ -26,7 +26,13 @@ const CashbackHistory = ({ CashHistory }) => {
   const [isPaused, setIsPaused] = useState(false);
   const tableRef = useRef(null);
 
-  const head = ["ID", "Transaction Date", "Amount Earned", "Booking Details", ""];
+  const head = [
+    'ID',
+    'Transaction Date',
+    'Amount Earned',
+    'Booking Details',
+    '',
+  ];
 
   const handleViewDetails = (cashback) => {
     setSelectedCashback(cashback);
@@ -37,62 +43,59 @@ const CashbackHistory = ({ CashHistory }) => {
     let scrollSpeed = 0.1;
     let scrollPosition = 0;
     let animationFrameId;
-  
+
     const scrollTable = () => {
       if (tableRef.current && !isPaused) {
         scrollPosition += scrollSpeed;
         tableRef.current.scrollTop = scrollPosition;
-  
-        if (tableRef.current.scrollTop + tableRef.current.clientHeight >= tableRef.current.scrollHeight) {
+
+        if (
+          tableRef.current.scrollTop + tableRef.current.clientHeight >=
+          tableRef.current.scrollHeight
+        ) {
           scrollPosition = 0;
         }
       }
       animationFrameId = requestAnimationFrame(scrollTable);
     };
-  
+
     // Start the scroll animation
     animationFrameId = requestAnimationFrame(scrollTable);
-  
+
     // Cleanup on unmount
     return () => cancelAnimationFrame(animationFrameId);
   }, [isPaused]);
-  
+
   // Add event listeners for manual scrolling
   const handleManualScroll = () => {
     setIsPaused(true);
   };
-  
+
   const handleResumeScroll = () => {
-    setIsPaused(false); 
+    setIsPaused(false);
   };
-  
 
   return (
     <TableContainer
       border={`0.5px solid ${colors.sub}`}
-      borderRadius={"6px"}
+      borderRadius={'6px'}
       ref={tableRef}
-      onMouseEnter={() => setIsPaused(true)} 
+      onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={handleResumeScroll}
       onClick={handleManualScroll}
       style={{
         maxHeight: '300px',
         overflowY: 'hidden',
       }}
-    >  
+    >
       <Table>
-        <Thead
-          position="sticky"
-          top={0}
-          bg={colors.background}
-          zIndex={1}
-        >
+        <Thead position="sticky" top={0} bg={colors.background} zIndex={1}>
           <Tr>
             {head.map((head, idx) => (
               <Th
                 key={idx}
                 color={colors.text}
-                textTransform={"capitalize"}
+                textTransform={'capitalize'}
                 fontSize="12"
                 fontWeight="500"
               >
@@ -112,12 +115,12 @@ const CashbackHistory = ({ CashHistory }) => {
                 <Button
                   onClick={() => handleViewDetails(cashback)}
                   border="none"
-                  variant={"outline"}
+                  variant={'outline'}
                   color={colors.primary}
-                  fontSize={"12px"}
+                  fontSize={'12px'}
                   _hover={{
                     bg: colors.primary,
-                    color: "#fff",
+                    color: '#fff',
                   }}
                 >
                   View
@@ -136,9 +139,16 @@ const CashbackHistory = ({ CashHistory }) => {
             <ModalHeader>Cashback Details</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <Text><strong>Transaction Date:</strong> {selectedCashback.date}</Text>
-              <Text><strong>Amount Earned:</strong> ${selectedCashback.amount}</Text>
-              <Text><strong>Booking Details:</strong> {selectedCashback.bookingDetails}</Text>
+              <Text>
+                <strong>Transaction Date:</strong> {selectedCashback.date}
+              </Text>
+              <Text>
+                <strong>Amount Earned:</strong> ${selectedCashback.amount}
+              </Text>
+              <Text>
+                <strong>Booking Details:</strong>{' '}
+                {selectedCashback.bookingDetails}
+              </Text>
             </ModalBody>
 
             <ModalFooter>

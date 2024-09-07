@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import { Box, Button, Text, useDisclosure } from '@chakra-ui/react';
-import CashbackModal from "../../app/CashbackHistory/modal";
-import { colors } from "../../constants/colors";
-import { Link } from "react-router-dom";
+import CashbackModal from '../../app/CashbackHistory/modal';
+import { colors } from '../../constants/colors';
+import { Link } from 'react-router-dom';
 
 const MainCard = ({ title, width, height, flex, children, show, linkTo }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -10,7 +10,7 @@ const MainCard = ({ title, width, height, flex, children, show, linkTo }) => {
   return (
     <Box
       border={`0.5px solid ${colors.sub}`}
-      borderRadius={"10px"}
+      borderRadius={'10px'}
       width={width}
       height={height}
       bg="#fff"
@@ -19,9 +19,9 @@ const MainCard = ({ title, width, height, flex, children, show, linkTo }) => {
       <Box
         borderBottom={`0.5px solid ${colors.sub}`}
         p="16px"
-        display={"flex"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
+        display={'flex'}
+        justifyContent={'space-between'}
+        alignItems={'center'}
       >
         <Text
           textTransform="capitalize"
@@ -34,13 +34,13 @@ const MainCard = ({ title, width, height, flex, children, show, linkTo }) => {
         {show && (
           <Link to={linkTo}>
             <Button
-            onClick={onOpen}
-            borderColor={colors.primary}
-            size="sm"
-              variant={"outline"}
+              onClick={onOpen}
+              borderColor={colors.primary}
+              size="sm"
+              variant={'outline'}
               _hover={{
                 bg: colors.primary,
-                color: "#fff",
+                color: '#fff',
               }}
             >
               View All

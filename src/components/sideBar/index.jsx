@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
-import { Box, Text, IconButton, VStack, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerBody, useDisclosure } from '@chakra-ui/react';
+import {
+  Box,
+  Text,
+  IconButton,
+  VStack,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerBody,
+  useDisclosure,
+} from '@chakra-ui/react';
 import { FiHome, FiActivity, FiCreditCard } from 'react-icons/fi';
 import { colors } from '../../constants/colors';
 
@@ -24,7 +35,7 @@ const Sidebar = ({ isMobile, onClose }) => {
       >
         <Text fontSize="lg" fontWeight="bold">
           <IconButton
-            icon={<FiHome size="24px"/>}
+            icon={<FiHome size="24px" />}
             mr={2}
             bg="transparent"
             _hover={{ bg: 'transparent' }}
@@ -32,7 +43,7 @@ const Sidebar = ({ isMobile, onClose }) => {
           Overview
         </Text>
       </Box>
-      
+
       <Box
         color={activeTab === 'Dashboard' ? colors.text : colors.primary}
         bg={activeTab === 'Dashboard' ? colors.primary : 'transparent'}
@@ -44,7 +55,7 @@ const Sidebar = ({ isMobile, onClose }) => {
       >
         <Text fontSize="lg" fontWeight="bold">
           <IconButton
-            icon={<FiActivity size="24px"/>}
+            icon={<FiActivity size="24px" />}
             mr={2}
             bg="transparent"
             _hover={{ bg: 'transparent' }}
@@ -64,7 +75,7 @@ const Sidebar = ({ isMobile, onClose }) => {
       >
         <Text fontSize="lg" fontWeight="bold">
           <IconButton
-            icon={<FiCreditCard size="24px"/>}
+            icon={<FiCreditCard size="24px" />}
             mr={2}
             bg="transparent"
             _hover={{ bg: 'transparent' }}

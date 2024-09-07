@@ -1,17 +1,17 @@
-import React from "react";
-import { Box, Text } from "@chakra-ui/react";
-import CashBackOptions from "../../app/CashoutOptions";
-import styles from "../styles.module.css";
-import { colors } from "../../constants/colors";
+import React from 'react';
+import { Box, Text } from '@chakra-ui/react';
+import CashBackOptions from '../../app/CashBackOptions';
+import styles from '../styles.module.css';
+import { colors } from '../../constants/colors';
 
 const OverviewCard = ({ title, amount, status, renderCashoutOptions }) => {
   return (
     <Box
       border={`0.5px solid ${colors.sub}`}
-      borderRadius={"10px"}
+      borderRadius={'10px'}
       pl="16px"
       pb="12px"
-      bgColor={status ? `${colors.primary}` : "none"}
+      bgColor={status ? `${colors.primary}` : 'none'}
       className={styles.bg}
     >
       <Text
@@ -23,7 +23,6 @@ const OverviewCard = ({ title, amount, status, renderCashoutOptions }) => {
         {title}
       </Text>
       {renderCashoutOptions ? (
-        
         <CashBackOptions />
       ) : (
         <Text

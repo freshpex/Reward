@@ -5,7 +5,7 @@ import Navbar from '../components/navBar';
 
 const Layout = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  
+
   return (
     <Flex>
       <Box display={{ base: 'none', md: 'block' }}>

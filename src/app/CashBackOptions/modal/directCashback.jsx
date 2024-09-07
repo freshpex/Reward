@@ -1,10 +1,27 @@
 import React from 'react';
-import { Box, Input, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, Select, FormControl, FormLabel } from '@chakra-ui/react';
+import {
+  Box,
+  Input,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  Select,
+  FormControl,
+  FormLabel,
+} from '@chakra-ui/react';
 import { Formik, Form, Field } from 'formik';
 import { colors } from '../../../constants/colors';
 
-const DirectCashback = ({ isOpen, onClose, handleSubmit, loading, hasError }) => {
-
+const DirectCashback = ({
+  isOpen,
+  onClose,
+  handleSubmit,
+  loading,
+  hasError,
+}) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -22,10 +39,25 @@ const DirectCashback = ({ isOpen, onClose, handleSubmit, loading, hasError }) =>
                 <FormLabel mb="8px" textStyle="md">
                   Bank Name
                 </FormLabel>
-                <Box display="flex" alignContent="center" alignItems="center" border="1px solid #D9D8DA" borderRadius="10px">
-                  <Field name="bankName" as="select" focusBorderColor={colors.primary}>
+                <Box
+                  display="flex"
+                  alignContent="center"
+                  alignItems="center"
+                  border="1px solid #D9D8DA"
+                  borderRadius="10px"
+                >
+                  <Field
+                    name="bankName"
+                    as="select"
+                    focusBorderColor={colors.primary}
+                  >
                     {({ field }) => (
-                      <Select {...field} border="none" borderRight="1px solid #D9D8DA" width="200px">
+                      <Select
+                        {...field}
+                        border="none"
+                        borderRight="1px solid #D9D8DA"
+                        width="200px"
+                      >
                         <option value="">--Type--</option>
                         <option value="bbank">B Bank</option>
                         <option value="cbank">C Bank</option>
@@ -64,13 +96,13 @@ const DirectCashback = ({ isOpen, onClose, handleSubmit, loading, hasError }) =>
               </FormControl>
 
               <Button
-              color={colors.primary}
+                color={colors.primary}
                 size="sm"
                 variant="outline"
                 mt={4}
                 isLoading={loading}
                 type="submit"
-                _hover={{ bg: colors.primary, color: "#fff" }}
+                _hover={{ bg: colors.primary, color: '#fff' }}
               >
                 Submit
               </Button>

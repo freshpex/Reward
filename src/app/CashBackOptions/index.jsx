@@ -17,8 +17,8 @@ const CashBackOptions = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const isSuccess = Math.random() > 0.3;
-        if (isSuccess) resolve("Success");
-        else reject("Error");
+        if (isSuccess) resolve('Success');
+        else reject('Error');
       }, 2000);
     });
   };
@@ -32,31 +32,32 @@ const CashBackOptions = () => {
     try {
       await simulateCashoutAPI();
       toast({
-        title: "CashBack successful.",
+        title: 'CashBack successful.',
         description: `You've successfully cashed out via ${selectedOption === 'direct' ? 'Direct Cashout' : 'Promo Codes'}.`,
-        status: "success",
+        status: 'success',
         duration: 3000,
         isClosable: true,
-        position: "top",
+        position: 'top',
       });
       onClose();
     } catch (error) {
-      setHasError(true); 
+      setHasError(true);
       handleCashoutError();
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
 
   // Handle Error during cashout
   const handleCashoutError = () => {
     toast({
-      title: "Transaction failed.",
-      description: "There was an error processing your cash back. Please try again.",
-      status: "error",
+      title: 'Transaction failed.',
+      description:
+        'There was an error processing your cash back. Please try again.',
+      status: 'error',
       duration: 3000,
       isClosable: true,
-      position: "top",
+      position: 'top',
     });
   };
 
@@ -83,7 +84,7 @@ const CashBackOptions = () => {
         variant="outline"
         _hover={{
           bg: colors.primary,
-          color: "#fff",
+          color: '#fff',
         }}
         onClick={() => handleCashout('direct')}
       >
@@ -96,7 +97,7 @@ const CashBackOptions = () => {
         variant="outline"
         _hover={{
           bg: colors.primary,
-          color: "#fff",
+          color: '#fff',
         }}
         onClick={() => handleCashout('promo')}
       >

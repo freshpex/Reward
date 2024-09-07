@@ -8,12 +8,12 @@ import {
   Text,
   Flex,
   Spacer,
-} from "@chakra-ui/react";
-import { colors } from "../../constants/colors";
-import React from "react";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { Input, IconButton } from "@chakra-ui/react";
-import { FiSearch, FiBell, FiMenu } from "react-icons/fi";
+} from '@chakra-ui/react';
+import { colors } from '../../constants/colors';
+import React from 'react';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import { Input, IconButton } from '@chakra-ui/react';
+import { FiSearch, FiBell, FiMenu } from 'react-icons/fi';
 
 const Navbar = ({ onToggleSidebar }) => {
   return (
@@ -21,9 +21,9 @@ const Navbar = ({ onToggleSidebar }) => {
       py="20px"
       px="10px"
       bg="#fff"
-      boxShadow={"0px 0.5px 1px 0px #0000000D"}
+      boxShadow={'0px 0.5px 1px 0px #0000000D'}
       alignItems="center"
-      position={"fixed"}
+      position={'fixed'}
       w="full"
       zIndex={10}
     >
@@ -33,7 +33,7 @@ const Navbar = ({ onToggleSidebar }) => {
           icon={<FiMenu />}
           bg="transparent"
           onClick={onToggleSidebar}
-          display={{ base: "block", md: "none" }}
+          display={{ base: 'block', md: 'none' }}
         />
 
         <Flex align="center" w="400px" maxW="100%">
@@ -59,7 +59,7 @@ const Navbar = ({ onToggleSidebar }) => {
             bg="transparent"
             fontSize="20px"
             color={colors.primary}
-            display={{ base: "block", md: "block" }}
+            display={{ base: 'block', md: 'block' }}
           />
 
           <Menu>

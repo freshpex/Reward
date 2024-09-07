@@ -1,42 +1,76 @@
 import React from 'react';
-import { Box, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+} from '@chakra-ui/react';
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+} from '@chakra-ui/react';
+import { colors } from '../../../constants/colors';
 
 const CashbackModal = ({ isOpen, onClose }) => {
-  // Dummy cashback data, should be replaced by real data
-  const CashHistory = [
-    { id: '1', date: '2024-09-01', amount: '50', details: 'Booking #12345' },
-    { id: '2', date: '2024-09-03', amount: '30', details: 'Booking #12346' },
-    { id: '3', date: '2024-09-05', amount: '20', details: 'Booking #12347' },
+  const head = [
+    'ID',
+    'Transaction Date',
+    'Amount Earned',
+    'Booking Details',
+    '',
   ];
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl">
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Cashback History</ModalHeader>
+        <ModalHeader>Cashback Full History</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Box overflowY="auto" maxHeight="400px">
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Date</th>
-                  <th>Amount</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {CashHistory.map((cashback) => (
-                  <tr key={cashback.id}>
-                    <td>{cashback.id}</td>
-                    <td>{cashback.date}</td>
-                    <td>{cashback.amount}</td>
-                    <td>{cashback.details}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <TableContainer border={`0.5px solid ${colors.sub}`}>
+              <Table>
+                <Thead
+                  position="sticky"
+                  top={0}
+                  bg={colors.background}
+                  zIndex={1}
+                >
+                  <Tr>
+                    {head.map((head, idx) => (
+                      <Th
+                        key={idx}
+                        color={colors.text}
+                        textTransform={'capitalize'}
+                        fontSize="12"
+                        fontWeight="500"
+                      >
+                        {head}
+                      </Th>
+                    ))}
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {[...new Array(15)].map((_, idx) => (
+                    <Tr key={idx} fontSize="12px" textTransform={'capitalize'}>
+                      <Td>B1234</Td>
+                      <Td>2024-09-01</Td>
+                      <Td>50</Td>
+                      <Td>Booked an Hotel room for 3 Nights</Td>
+                    </Tr>
+                  ))}
+                </Tbody>
+              </Table>
+            </TableContainer>
           </Box>
 
           <Button mt={4} colorScheme="blue" onClick={onClose}>
